@@ -54,6 +54,7 @@ const app = new Hono()
                     notes: transactions.notes,
                     account: accounts.name,
                     accountId: transactions.accountId,
+                    amount: transactions.amount,
                 })
                 .from(transactions)
                 .innerJoin(accounts, eq(transactions.accountId, accounts.id))
@@ -94,12 +95,12 @@ const app = new Hono()
 
             const [data] = await db
                 .select({
-                    id: transactions.id,
                     date: transactions.date,
                     categoryId: transactions.categoryId,
                     payee: transactions.payee,
                     notes: transactions.notes,
                     accountId: transactions.accountId,
+                    amount: transactions.amount,
                 })
                 .from(transactions)
                 .innerJoin(accounts, eq(transactions.accountId, accounts.id))
