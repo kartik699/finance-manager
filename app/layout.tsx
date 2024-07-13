@@ -1,7 +1,7 @@
 import { Toaster } from "sonner";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider, GoogleOneTap } from "@clerk/nextjs";
 
 import { QueryProvider } from "@/providers/query-provider";
 import { SheetProvider } from "@/providers/sheet-provider";
@@ -24,6 +24,7 @@ export default function RootLayout({
         <ClerkProvider>
             <html lang="en">
                 <body className={inter.className}>
+                    <GoogleOneTap cancelOnTapOutside />
                     <QueryProvider>
                         <SheetProvider />
                         <Toaster />
